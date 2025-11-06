@@ -1,0 +1,217 @@
+/* === Estilos base y login === */
+:root{
+  --blue-50:#eff6ff;
+  --blue-400:#60a5fa;
+  --blue-500:#3b82f6;
+  --blue-600:#2563eb;
+  --cyan-50:#ecfeff;
+  --cyan-400:#22d3ee;
+  --cyan-500:#06b6d4;
+  --gray-500:#6b7280;
+  --gray-700:#374151;
+  --gray-800:#1f2937;
+  --white: #ffffff;
+  --black: #000000;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  color: var(--gray-800);
+  background: linear-gradient(135deg, var(--blue-50), var(--cyan-50));
+  display:flex;
+  min-height:100vh;
+}
+
+.center{
+  display:flex; align-items:center; justify-content:center; width:100%; padding:16px;
+}
+
+.card{
+  width:100%; max-width: 28rem;
+  background: rgba(255,255,255,0.9); /* fallback */
+  backdrop-filter: blur(24px);
+  border: 1px solid #bfdbfe;
+  border-radius: var(--radius-3xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-2xl);
+}
+
+.brand{
+  text-align:center; margin-bottom:2rem;
+}
+
+.avatar{
+  width:5rem; height:5rem; margin: 0 auto 1rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--blue-400), var(--cyan-400));
+  display:flex; align-items:center; justify-content:center;
+  color:white;
+}
+
+h1{font-size:1.875rem; line-height:2.25rem; font-weight:700; margin:0 0 .5rem}
+.subtitle{color: var(--blue-600); text-align:center}
+label{display:block; font-size:.9rem; font-weight:600; color:#374151; margin-bottom:.5rem}
+.field{position:relative}
+.input{
+  width:100%; padding:.85rem 1rem .85rem 2.5rem;
+  border:1px solid #bfdbfe; background: rgba(239,246,255,0.5);
+  border-radius: var(--radius-2xl);
+  outline: none;
+  color: var(--gray-800);
+  transition: box-shadow .15s ease, border-color .15s ease;
+}
+.input:focus{
+  border-color: transparent;
+  box-shadow: 0 0 0 3px var(--blue-400);
+}
+.icon{
+  position:absolute; left:.75rem; top:50%; transform: translateY(-50%);
+  width:1.25rem; height:1.25rem; color: var(--blue-500);
+}
+.rows{display:grid; gap:1rem}
+.btn{
+  width:100%; border:0; cursor:pointer;
+  padding:.85rem 1.25rem; border-radius: var(--radius-2xl);
+  font-weight:700; color:white;
+  background: linear-gradient(90deg, var(--blue-500), var(--cyan-500));
+  box-shadow: var(--shadow-lg);
+  display:flex; align-items:center; justify-content:center; gap:.5rem;
+  transition: filter .2s ease, transform .05s ease;
+}
+.btn:active{ transform: translateY(1px); }
+.hint{ margin-top:1rem; text-align:center; font-size:.85rem; color: var(--gray-500);}
+.toast{
+  position: fixed; right:1rem; bottom:1rem; z-index:50;
+  opacity:.9; pointer-events:none;
+  background: #000; color:white; padding:.5rem .75rem; border-radius:5px;
+  display:flex; align-items:center; gap:.35rem; font-weight:600; font-size:.9rem; box-shadow: var(--shadow-lg);
+}
+.sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;}
+.check{ color:white; width:1rem; height:1rem}
+.error{ color:#b91c1c }
+.ok{ color:#166534 }
+.msg{ text-align:center; margin-top:.75rem; font-size:.95rem }
+
+/* === Dashboard Upload Styles === */
+.app-wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;gap:28px;padding:48px 16px;background:linear-gradient(135deg,#eff6ff,#ecfeff)}
+.hero-title{font-size:2.5rem;line-height:1.2;font-weight:800;color:#111827;text-align:center;margin:0}
+.hero-sub{margin:0;color:#2563eb;font-weight:600;text-align:center}
+.panel{
+  width:min(1020px,92vw);
+  background:#fff;border-radius:24px;padding:42px 28px;box-shadow:0 30px 60px -20px rgb(0 0 0 / .2);
+  border:1px dashed #93c5fd; position:relative;
+}
+/* === Caja de subida (icono centrado arriba) === */
+.drop {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;   /* coloca el contenido desde arriba */
+    gap: 14px;
+    min-height: 220px;
+    border-radius: 18px;
+    border: 2px dashed #93c5fd;
+    background: #ffffff;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 100px;            /* espacio superior para el ícono */
+  }
+  
+  /* Ícono centrado arriba */
+  .drop .icon {
+    position: absolute;
+    top: 30px;                     /* distancia desde la parte superior */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 65px;
+    height: 65px;
+    color: #3b82f6;
+    transition: transform 0.25s ease, color 0.25s ease;
+  }
+  
+  /* Título y ayuda */
+  .drop .title {
+    margin: 0;
+    color: #2563eb;
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+  
+  .drop .hint {
+    margin: 0;
+    color: #6b7280;
+    font-size: 0.9rem;
+  }
+  
+  /* Hover: tono más azul + leve elevación */
+  .drop:hover {
+    background: #f0f8ff;
+    border-color: #3b82f6;
+    box-shadow: 0 8px 20px -10px rgba(59, 130, 246, 0.4);
+    transform: translateY(-2px);
+  }
+  
+  /* Efecto sutil del ícono al pasar el mouse */
+  .drop:hover .icon {
+    transform: translateX(-50%) scale(1.1);
+    color: #2563eb;
+  }
+  
+  /* Input invisible que captura el click/drag */
+  .hidden-input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+  
+  /* Botón de analizar (deja igual si ya lo tienes) */
+  .actions { display: flex; align-items: center; justify-content: center; margin-top: 28px; }
+  .primary-btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:16px 26px; border-radius:999px; border:0; cursor:not-allowed;
+    background:#93c5fd; color:white; font-weight:800;
+    box-shadow:0 10px 20px -10px rgb(59 130 246 / .6);
+    transition:transform .05s ease, filter .2s ease, background .2s ease;
+  }
+  .primary-btn.enabled { cursor:pointer; background:#3b82f6; }
+  .primary-btn:active { transform: translateY(1px); }
+  
+
+.primary-btn svg{width:20px;height:20px}
+.preview{margin-top:18px;text-align:center;color:#374151;font-size:.95rem}
+.preview img{max-width:200px;border-radius:12px;display:block;margin:10px auto 0}
+.status-ok{color:#166534}
+.status-err{color:#b91c1c}
+
+/* === Centrado total del dashboard === */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #eff6ff, #ecfeff);
+  }
+  
+  .app-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    padding: 48px 16px;
+    width: 100%;
+    max-width: 1020px;
+    box-sizing: border-box;
+  }
+  @media (min-height: 700px) {
+    .app-wrap {
+      min-height: 80vh;
+    }
+  }
+    
