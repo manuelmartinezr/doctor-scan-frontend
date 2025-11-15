@@ -125,6 +125,8 @@ analyzeBtn.addEventListener('click', async function(){
         <strong>Resultado:</strong> ${res.label} <br>
         <small>Confianza: ${(res.confidence * 100).toFixed(1)}%</small>
     `;
+    // css temporal para el popup
+    // pls quitar y asignarle estilo con clases externas
     Object.assign(popup.style, {
         position: 'fixed',
         top: '20px',
